@@ -14,9 +14,13 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/mickmon1349/callmeback-art-maker.git', branch: 'main'
+                checkout([$class: 'GitSCM',
+                    branches: [[name: '*/main']],
+                    userRemoteConfigs: [[url: 'https://github.com/mickmon1349/HelloWorld.git']]
+                ])
             }
         }
+
 
         stage('Install Dependencies') {
             steps {
