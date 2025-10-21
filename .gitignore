@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+*:Zone.Identifier
+*.Zone.Identifier
 
 node_modules
 *.local
@@ -22,3 +24,6 @@ node_modules
 *_back
 
 
+# 其他 Windows 系統檔案
+Thumbs.db
+Desktop.ini
