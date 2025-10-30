@@ -11,7 +11,8 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "test": "jest"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
