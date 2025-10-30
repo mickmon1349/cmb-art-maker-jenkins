@@ -14,13 +14,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM',
+                checkout([
+                    $class: 'GitSCM',
                     branches: [[name: '*/main']],
-                    userRemoteConfigs: [[url: 'https://github.com/mickmon1349/HelloWorld.git']]
+                    doGenerateSubmoduleConfigurations: false,
+                    extensions: [],
+                    submoduleCfg: [],
+                    userRemoteConfigs: [[
+                        url: 'https://github.com/mickmon1349/cmb-art-maker-jenkins.git',
+                        credentialsId: ''  // 若 private repo 請填 credentialsId，public repo可不填
+                    ]]
                 ])
             }
         }
-
 
         stage('Install Dependencies') {
             steps {
@@ -97,4 +103,3 @@ pipeline {
         }
     }
 }
-
