@@ -34,21 +34,22 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Running unit tests...'
-                sh 'npm test'
-            }
-            post {
-                success {
-                    echo '✅ 所有測試通過！'
-                }
-                failure {
-                    echo '❌ 測試失敗，停止 Pipeline！'
-                    error('Tests failed. See logs above.')
-                }
-            }
+  stage('Test') {
+    steps {
+        echo 'Running unit tests...'
+        sh './node_modules/.bin/jest'
+    }
+    post {
+        success {
+            echo '✅ 所有測試通過！'
         }
+        failure {
+            echo '❌ 測試失敗，停止 Pipeline！'
+            error('Tests failed. See logs above.')
+        }
+    }
+}
+
 
         stage('Build Frontend') {
             steps {
